@@ -20,8 +20,8 @@ export const TodoInput = ({ onAdd }: Props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: '24px' }}>
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+    <form onSubmit={handleSubmit} style={{ marginBottom: '8px' }}>
+      <div style={{ display: 'flex', gap: '6px', marginBottom: '6px' }}>
         <input
           type="text"
           value={text}
@@ -29,24 +29,24 @@ export const TodoInput = ({ onAdd }: Props) => {
           placeholder="タスクを入力..."
           style={{
             flex: 1,
-            padding: '10px 14px',
-            borderRadius: '8px',
+            padding: '6px 10px',
+            borderRadius: '6px',
             border: '1px solid #333',
             background: '#1e1e1e',
             color: '#f0ede6',
-            fontSize: '14px',
+            fontSize: '12px',
             outline: 'none'
           }}
         />
         <button
           type="submit"
           style={{
-            padding: '10px 20px',
-            borderRadius: '8px',
+            padding: '6px 12px',
+            borderRadius: '6px',
             border: '1px solid #c8f542',
             background: 'transparent',
             color: '#c8f542',
-            fontSize: '14px',
+            fontSize: '11px',
             cursor: 'pointer',
             whiteSpace: 'nowrap'
           }}
@@ -54,17 +54,17 @@ export const TodoInput = ({ onAdd }: Props) => {
           追加
         </button>
       </div>
-      <div style={{ display: 'flex', gap: '8px' }}>
+      <div style={{ display: 'flex', gap: '6px' }}>
         <select
           value={priority}
           onChange={e => setPriority(e.target.value as Priority)}
           style={{
-            padding: '6px 12px',
-            borderRadius: '8px',
+            padding: '4px 8px',
+            borderRadius: '6px',
             border: '1px solid #333',
             background: '#1e1e1e',
             color: '#888',
-            fontSize: '12px',
+            fontSize: '11px',
             cursor: 'pointer',
             outline: 'none'
           }}
@@ -78,13 +78,14 @@ export const TodoInput = ({ onAdd }: Props) => {
           value={dueDate}
           onChange={e => setDueDate(e.target.value)}
           style={{
-            padding: '6px 12px',
-            borderRadius: '8px',
+            padding: '4px 8px',
+            borderRadius: '6px',
             border: '1px solid #333',
             background: '#1e1e1e',
             color: '#888',
-            fontSize: '12px',
-            outline: 'none'
+            fontSize: '11px',
+            outline: 'none',
+            flex: 1
           }}
         />
       </div>

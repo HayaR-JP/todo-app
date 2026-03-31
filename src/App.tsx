@@ -1,7 +1,6 @@
 import { useTodos } from './hooks/useTodos'
 import { TodoInput } from './components/TodoInput'
-import { TodoList } from './components/TodoList'
-import { FilterTab } from './components/FilterTab'
+import { KanbanBoard } from './components/KanbanBoard'
 
 function App() {
   const {
@@ -26,11 +25,7 @@ function App() {
   const progress = todos.length === 0 ? 0 : Math.round((counts.completed / todos.length) * 100)
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: '#0e0e0e',
-      display: 'flex',
-    }}>
+    <div style={{ minHeight: '100vh', background: '#0e0e0e', display: 'flex' }}>
 
       {/* サイドバー */}
       <div style={{
@@ -46,7 +41,6 @@ function App() {
         flexDirection: 'column',
         gap: '24px'
       }}>
-        {/* ロゴ */}
         <div>
           <p style={{ fontFamily: 'monospace', fontSize: '10px', color: '#c8f542', letterSpacing: '0.15em', marginBottom: '4px' }}>
             TASK MANAGER
@@ -56,7 +50,6 @@ function App() {
           </h1>
         </div>
 
-        {/* プログレスバー */}
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
             <span style={{ fontSize: '11px', color: '#555', fontFamily: 'monospace' }}>進捗</span>
@@ -73,7 +66,6 @@ function App() {
           </div>
         </div>
 
-        {/* タスク統計 */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {[
             { label: 'すべて', count: counts.all, color: '#f0ede6' },
@@ -94,7 +86,6 @@ function App() {
           ))}
         </div>
 
-        {/* 新規タスク入力 */}
         <div>
           <p style={{ fontFamily: 'monospace', fontSize: '10px', color: '#555', letterSpacing: '0.1em', marginBottom: '12px' }}>
             NEW TASK
@@ -104,26 +95,13 @@ function App() {
       </div>
 
       {/* メインコンテンツ */}
-      <div style={{
-        flex: 1,
-        padding: '40px 48px',
-        overflowY: 'auto',
-      }}>
-        <div>
-          <FilterTab
-            filter={filter}
-            onFilter={setFilter}
-            counts={counts}
-            onClearCompleted={clearCompleted}
-          />
-          <TodoList
-            todos={filteredTodos}
-            onToggle={toggleTodo}
-            onDelete={deleteTodo}
-            onEdit={editTodo}
-            onReorder={reorderTodos}
-          />
-        </div>
+      <div style={{ flex: 1, padding: '40px 32px', overflowY: 'auto' }}>
+        <KanbanBoard
+          todos={todos}
+          onToggle={toggleTodo}
+          onDelete={deleteTodo}
+          onEdit={editTodo}
+        />
       </div>
 
     </div>
